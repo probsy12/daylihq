@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join your team on Dayli HQ</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // daylihq.co.uk/join/?code=ABCDE-FGHJK → HQ's join screen.
+      (function () {
+        var code = (new URLSearchParams(location.search).get('code') || '').replace(
+          /[^A-Za-z0-9]/g,
+          '',
+        );
+        location.replace('/app/' + (code ? '#/join/' + code.toUpperCase() : ''));
+      })();
+    </script>
+  </head>
+  <body style="font-family: -apple-system, Arial, sans-serif; padding: 40px; text-align: center">
+    <p><a href="/app/">Open Dayli HQ</a></p>
+  </body>
+</html>
