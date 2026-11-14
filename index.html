@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dayli HQ: run your team, games and events</title>
+<meta name="description" content="Dayli HQ is where organisers run teams, social games and events. Set it up once and it lands in every player's Dayli calendar, with who's in, the team sheet and who's paid.">
+<meta property="og:title" content="Dayli HQ: run your team, games and events">
+<meta property="og:description" content="Organise in HQ. Everyone else just checks their calendar.">
+<meta property="og:image" content="https://daylihq.co.uk/img/hq-teams.webp">
+<meta property="og:url" content="https://daylihq.co.uk/">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon-v2.png">
+<style>
+:root{--bg:#f6f5f1;--ink:#1c1a17;--muted:#6f6a60;--border:#e6e3da;--accent:#2f6b4f;--soft:#e4efe8;--card:#fff;--serif:Georgia,'Times New Roman',serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+/* nav */
+.nav{display:flex;align-items:center;gap:28px;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:40px;height:40px}
+.brand b{font:700 26px var(--serif)}
+.brand span{font:800 14px var(--sans);color:var(--accent);letter-spacing:.6px;margin-top:4px}
+.links{display:flex;gap:26px;margin-left:24px;font-size:15px;color:#4a463e;font-weight:600}
+.nav .grow{flex:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:13px 20px;font-weight:700;font-size:15px;border:1.5px solid var(--border);background:#fff}
+.btn.p{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.big{padding:16px 26px;font-size:16px;border-radius:14px}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--accent)}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding:40px 0 70px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--accent);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:800;letter-spacing:.3px}
+h1{font:700 58px/1.04 var(--serif);margin:18px 0 18px;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;line-height:1.55;color:#4d493f;margin:0 0 28px;max-width:520px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.small{font-size:13.5px;color:var(--muted);margin-top:14px}
+.shots{position:relative;height:500px}
+.laptop{position:absolute;right:0;top:20px;width:580px;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px rgba(28,26,23,.18),0 0 0 8px #1c1a17}
+.laptop img{display:block;width:100%;height:auto}
+.phone{position:absolute;left:-30px;bottom:-40px;width:196px;border-radius:34px;overflow:hidden;box-shadow:0 26px 50px rgba(28,26,23,.25),0 0 0 7px #1c1a17;background:#fff}
+.phone img{display:block;width:100%;height:auto}
+.tag{position:absolute;background:#fff;border:1px solid var(--border);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:700;box-shadow:0 10px 24px rgba(28,26,23,.12);display:flex;gap:10px;align-items:center}
+.tag i{width:28px;height:28px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;flex:none;font-style:normal;color:var(--accent);font-weight:800}
+.tag small{display:block;color:var(--muted);font-weight:600;margin-top:1px}
+/* for */
+.for{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:22px 0 8px;border-top:1px solid var(--border)}
+.for b{font-size:13px;letter-spacing:.6px;color:var(--muted);margin-right:8px}
+.for span{background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600}
+/* sections */
+section{padding:84px 0 0}
+.kick{font-size:13px;font-weight:800;letter-spacing:.8px;color:var(--accent)}
+h2{font:700 42px/1.1 var(--serif);margin:10px 0 14px;letter-spacing:-.3px}
+.sub{font-size:18px;color:#57524a;line-height:1.55;max-width:680px;margin:0}
+.center{text-align:center}.center .sub{margin:0 auto}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:28px}
+.ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card h3{font:700 24px var(--serif);margin:0 0 8px}
+.card p{margin:0 0 16px;color:#5d584f;line-height:1.5;font-size:15.5px}
+.card ul{list-style:none;padding:0;margin:0;border-top:1px solid #efece5;padding-top:14px}
+.card li{display:flex;gap:10px;align-items:flex-start;font-size:15px;padding:5px 0;line-height:1.4}
+.card li:before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:7px;flex:none}
+.card .like{font-size:13px;color:var(--muted);margin-top:14px}
+/* link section */
+.link{display:grid;grid-template-columns:1fr 120px 1fr;gap:0;align-items:stretch;margin-top:40px}
+.side{background:#fff;border:1px solid var(--border);border-radius:24px;padding:28px}
+.side.dark{background:#1f3a2e;border-color:#1f3a2e;color:#fff}
+.side .hd{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.side .hd img{width:34px;height:34px}
+.side .hd b{font:700 23px var(--serif)}
+.side .who{font-size:14px;color:var(--muted);margin-bottom:18px}
+.side.dark .who{color:#b9d1c3}
+.row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid #efece5}
+.side.dark .row{border-top-color:rgba(255,255,255,.12)}
+.row .n{width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.side.dark .row .n{background:rgba(255,255,255,.14);color:#fff}
+.row b{display:block;font-size:16px;margin-bottom:2px}
+.row span{font-size:14px;color:#6f6a60;line-height:1.45}
+.side.dark .row span{color:#cfe0d6}
+.mid{display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:30px 0}
+.arrow{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;font-weight:800;letter-spacing:.4px;color:var(--accent);text-align:center}
+.arrow svg{display:block}
+.sync{margin-top:22px;background:var(--soft);border-radius:18px;padding:18px 22px;display:flex;gap:16px;align-items:center;font-size:15.5px;line-height:1.5}
+.sync b{color:var(--accent)}
+/* features */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.f{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px}
+.f .fi{width:40px;height:40px;border-radius:12px;background:var(--soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.f b{font-size:17px;display:block;margin-bottom:6px}
+.f span{font-size:14.5px;color:#625d54;line-height:1.5}
+/* showcase */
+.show{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center;margin-top:30px}
+.show .shot{border-radius:18px;overflow:hidden;box-shadow:0 24px 50px rgba(28,26,23,.15),0 0 0 1px var(--border)}
+.show .shot img{display:block;width:100%;height:auto}
+.ticks{list-style:none;padding:0;margin:20px 0 0}
+.ticks li{display:flex;gap:12px;padding:9px 0;font-size:16px;line-height:1.45}
+.ticks li svg{flex:none;margin-top:2px}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px}
+.step .num{font:700 40px var(--serif);color:var(--accent);line-height:1}
+.step b{display:block;font-size:18px;margin:12px 0 6px}
+.step span{font-size:15px;color:#5d584f;line-height:1.5}
+/* final */
+.final{margin:90px 0 0;background:#1f3a2e;color:#fff;border-radius:30px;padding:56px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.final h2{color:#fff;margin-top:0}
+.final p{color:#cfe0d6;font-size:18px;line-height:1.55;margin:0 0 24px}
+.final .btn.p{background:#fff;color:#1f3a2e;border-color:#fff}
+.final .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.qa{background:rgba(255,255,255,.07);border-radius:20px;padding:22px 24px}
+.qa div{padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;color:#cfe0d6;line-height:1.5}
+.qa div:first-child{border-top:0}
+.qa b{color:#fff;display:block;font-size:15.5px;margin-bottom:2px}
+footer{display:flex;align-items:center;gap:20px;padding:40px 0 50px;color:var(--muted);font-size:14px}
+footer .grow{flex:1}
+
+/* phone width */
+@media (max-width:760px){
+  .wrap{padding:0 18px}
+  .links,.nav .btn.ghost{display:none}
+  .nav{gap:12px;padding:16px 0}
+  .brand b{font-size:22px}.brand img{width:34px;height:34px}
+  .nav .btn{padding:10px 14px;font-size:14px}
+  .hero{grid-template-columns:1fr;gap:20px;padding:18px 0 40px}
+  h1{font-size:40px}
+  .lead{font-size:17px}
+  .shots{height:430px;margin-top:10px}
+  .laptop{width:330px;right:-6px;top:0;box-shadow:0 20px 40px rgba(28,26,23,.18),0 0 0 6px #1c1a17}
+  .phone{width:150px;left:0;bottom:0;border-radius:26px;box-shadow:0 20px 40px rgba(28,26,23,.25),0 0 0 5px #1c1a17}
+  .tag.t1{display:none}
+  .tag.t2{right:0;bottom:24px}
+  section{padding-top:58px}
+  h2{font-size:31px}
+  .sub{font-size:16px}
+  .three,.feat,.steps{grid-template-columns:1fr;gap:14px}
+  .link{grid-template-columns:1fr}
+  .mid{flex-direction:row;padding:14px 0;justify-content:center;gap:30px}
+  .mid{gap:8px;flex-wrap:wrap}
+  .mid .arrow svg{display:none}
+  .mid .arrow{background:var(--soft);border-radius:999px;padding:8px 12px;font-size:10.5px}
+  .mid .arrow br{display:none}
+  .show{grid-template-columns:1fr;gap:24px}
+  .final{grid-template-columns:1fr;padding:30px 22px;border-radius:24px;margin-top:60px}
+  footer{flex-wrap:wrap;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/img/logo.svg" alt=""><b>Dayli</b><span>HQ</span></a>
+    <div class="links"><a href="#what">Teams</a><a href="#what">Social games</a><a href="#what">Events</a><a href="#how">How it works</a></div>
+    <div class="grow"></div>
+    <a class="btn ghost" href="/app/">Sign in</a>
+    <a class="btn p" href="/app/">Get started free</a>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">FOR ORGANISERS · WORKS WITH THE DAYLI APP</span>
+      <h1>Run your team, games and events. <em>Everyone’s calendar keeps up.</em></h1>
+      <p class="lead">Dayli HQ is where you organise. Set up a fixture, a Thursday five-a-side or a quiz night once, and it lands in every player’s Dayli calendar, with who’s in, the team sheet and who’s paid all in one place.</p>
+      <div class="cta">
+        <a class="btn p big" href="/app/">Get started free</a>
+        <a class="btn big" href="#how">See how it works</a>
+      </div>
+      <div class="small">Sign in with your Dayli account. Your players use the free Dayli app.</div>
+    </div>
+    <div class="shots">
+      <div class="laptop"><img src="/img/hq-teams.webp" width="1600" height="1000" alt="Dayli HQ team sheet"></div>
+      <div class="phone"><img src="/img/app-calendar.webp" width="600" height="1298" alt="Dayli calendar"></div>
+      <div class="tag t1" style="right:-14px;top:-10px"><i>10</i><div>10 of 10 in<small>2 on the waiting list</small></div></div>
+      <div class="tag t2" style="left:150px;bottom:6px"><i>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><div>In everyone’s calendar<small>Thu 19:00 · Mabley Green</small></div></div>
+    </div>
+  </div>
+
+  <div class="for"><b>MADE FOR</b><span>Sunday league sides</span><span>Netball teams</span><span>Five-a-side groups</span><span>Padel doubles</span><span>Kids’ clubs</span><span>Quiz nights</span><span>Tournaments</span></div>
+
+  <section class="center" id="what">
+    <div class="kick">ONE PLACE FOR WHAT YOU RUN</div>
+    <h2>Teams, social games and events</h2>
+    <p class="sub">Tell HQ what you run and it only shows what you need. Add more any time.</p>
+    <div class="three" style="text-align:left">
+      <div class="card">
+        <div class="ic" style="background:#ece8fb"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6e56cf" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M15 14.5c3.3-.4 6.5 1.6 6.5 5"/></svg></div>
+        <h3>A team or club</h3>
+        <p>A squad that plays together all season.</p>
+        <ul><li>Fixtures, results and training</li><li>See who’s available, pick the team on the pitch</li><li>Subs and match fees, with reminders</li><li>A public team page fans can follow</li></ul>
+        <div class="like">Like: Sunday league side, netball team, kids’ club</div>
+      </div>
+      <div class="card">
+        <div class="ic" style="background:#e5ecfb"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3a61c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z"/></svg></div>
+        <h3>Social games</h3>
+        <p>Pick-up games anyone can join, one-off or every week.</p>
+        <ul><li>One link in the group chat, spaces fill up</li><li>Waiting list, Bibs v Colours</li><li>Split the pitch fee, see who’s paid</li><li>Let Dayli choose fair teams</li></ul>
+        <div class="like">Like: Thursday five-a-side, Sunday basketball, padel</div>
+      </div>
+      <div class="card">
+        <div class="ic" style="background:#fdeedd"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d9741c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg></div>
+        <h3>Events</h3>
+        <p>Things the public can find and go to.</p>
+        <ul><li>Listed for people nearby in the Dayli app</li><li>Tickets, check-in at the door</li><li>See who’s coming and from where</li><li>Reminders go out for you</li></ul>
+        <div class="like">Like: quiz night, yoga class, tournament, market</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="center">
+      <div class="kick">HOW IT LINKS WITH DAYLI CALENDAR</div>
+      <h2>You organise in HQ. They live in Dayli.</h2>
+      <p class="sub">HQ and the Dayli app share one account and one set of plans. Nothing to copy across, no spreadsheet, no “who’s in?” messages.</p>
+    </div>
+    <div class="link">
+      <div class="side">
+        <div class="hd"><img src="/img/logo.svg" alt=""><b>You, in Dayli HQ</b></div>
+        <div class="who">On your laptop or phone browser</div>
+        <div class="row"><span class="n">1</span><div><b>Set it up once</b><span>A fixture, a weekly game or an event: time, place, price.</span></div></div>
+        <div class="row"><span class="n">3</span><div><b>See who’s in, live</b><span>Yes, no reply, can’t play and the waiting list, as people answer.</span></div></div>
+        <div class="row"><span class="n">5</span><div><b>Pick the team, check payments</b><span>Drag players onto the pitch or let Dayli split fair sides. Nudge anyone who owes.</span></div></div>
+      </div>
+      <div class="mid">
+        <div class="arrow"><svg width="70" height="22" viewBox="0 0 70 22"><path d="M2 11h60" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round"/><path d="M54 3l9 8-9 8" fill="none" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>IN THEIR <br>CALENDAR</div>
+        <div class="arrow"><svg width="70" height="22" viewBox="0 0 70 22" style="transform:scaleX(-1)"><path d="M2 11h60" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round"/><path d="M54 3l9 8-9 8" fill="none" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>ANSWERS <br>COME BACK</div>
+        <div class="arrow"><svg width="70" height="22" viewBox="0 0 70 22"><path d="M2 11h60" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round"/><path d="M54 3l9 8-9 8" fill="none" stroke="#2f6b4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>TEAMS &amp; <br>REMINDERS</div>
+      </div>
+      <div class="side dark">
+        <div class="hd"><img src="/img/logo.svg" alt=""><b>Your players, in Dayli</b></div>
+        <div class="who">The free calendar app for iPhone and Android</div>
+        <div class="row"><span class="n">2</span><div><b>It’s in their calendar</b><span>Next to work, family and everything else, so clashes show up before they say yes.</span></div></div>
+        <div class="row"><span class="n">4</span><div><b>One tap to answer</b><span>I’m in or Can’t play, from the calendar or the notification. No app? The link works in any browser.</span></div></div>
+        <div class="row"><span class="n">6</span><div><b>Teams, changes and reminders</b><span>The team sheet, a new kick-off time, what to pay: it all updates in their calendar.</span></div></div>
+      </div>
+    </div>
+    <div class="sync"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg><div><b>Change it once, it changes everywhere.</b> Move a game in HQ and every player’s calendar moves with it, and they’re asked again if they can still make it. Already run a team in the Dayli app? It’s waiting for you in HQ.</div></div>
+  </section>
+
+  <section>
+    <div class="show">
+      <div class="shot"><img src="/img/hq-invites.webp" width="1500" height="938" alt="Invites in Dayli HQ"></div>
+      <div>
+        <div class="kick">SOCIAL GAMES</div>
+        <h2>One link in the group chat. The game fills itself.</h2>
+        <p class="sub">Share the link to WhatsApp. People tap I’m in and take a space; when it’s full they join the waiting list, and move up if someone drops out.</p>
+        <ul class="ticks">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Everyone who says yes joins your regulars for next week</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Split the pitch fee by however many play</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>See who’s paid, and what each person owes over the season</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="center">
+    <div class="kick">THE BITS ORGANISERS ASK FOR</div>
+    <h2>Less chasing, more playing</h2>
+    <div class="feat" style="text-align:left">
+      <div class="f"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="#2f6b4f"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg></div><b>Fair teams, chosen for you</b><span>Dayli learns from past scores and splits players into two even sides. Or mix them up at random.</span></div>
+      <div class="f"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></div><b>Who owes what</b><span>An “Owed to you” list across every game, with a one-tap nudge and the dates it’s from.</span></div>
+      <div class="f"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h9M3 6h.01M3 12h.01M3 18h.01"/></svg></div><b>Waiting list that runs itself</b><span>Full up? People queue. Someone drops out, the next person is in and told straight away.</span></div>
+      <div class="f"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><b>Reminders and nudges</b><span>Dayli reminds people who haven’t answered and who haven’t paid, so you don’t have to.</span></div>
+      <div class="f"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16l-8-4z"/></svg></div><b>A team sheet for your sport</b><span>Football pitch, basketball court, netball, hockey, tennis, padel, volleyball, and more.</span></div>
+      <div class="f"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.5-7.1L21 4v5h-5"/></svg></div><b>Every week, in one tap</b><span>Same time next week? Repeat it with last week’s players already invited.</span></div>
+    </div>
+  </section>
+
+  <section class="center">
+    <div class="kick">GET GOING IN TWO MINUTES</div>
+    <h2>Three steps, then you’re running</h2>
+    <div class="steps" style="text-align:left">
+      <div class="step"><div class="num">1</div><b>Sign in with Dayli</b><span>Use your Dayli account, or make one with your email. Teams you run in the app are already there.</span></div>
+      <div class="step"><div class="num">2</div><b>Pick what you run</b><span>A team, social games, events, or all three. Add your first game or fixture.</span></div>
+      <div class="step"><div class="num">3</div><b>Send one link</b><span>Drop it in the group chat. Players join in the Dayli app, or straight from the link.</span></div>
+    </div>
+  </section>
+
+  <div class="final">
+    <div>
+      <h2>Organise in HQ.<br>Everyone else just checks their calendar.</h2>
+      <p>Free to get started. Your players don’t pay a thing: they just need the Dayli app, or the link.</p>
+      <div class="cta"><a class="btn p big" href="/app/">Get started free</a><a class="btn big" href="https://daylicalendar.co.uk/download/">Get the Dayli app</a></div>
+    </div>
+    <div class="qa">
+      <div><b>Do my players need an account?</b>Not to say yes from the link. With the free Dayli app it goes in their calendar, with reminders.</div>
+      <div><b>Is HQ a different login?</b>No. It’s the same account as the Dayli app.</div>
+      <div><b>Can I take payments?</b>Yes: split a pitch fee, collect subs or sell tickets, and see who’s paid at a glance.</div>
+    </div>
+  </div>
+
+  <footer><a class="brand" href="/"><img src="/img/logo.svg" alt="" style="width:28px;height:28px"><b style="font-size:18px">Dayli</b><span>HQ</span></a><div class="grow"></div><a href="https://daylicalendar.co.uk/">Part of Dayli calendar</a><a href="https://daylicalendar.co.uk/privacy.html">Privacy</a><a href="https://daylicalendar.co.uk/terms.html">Terms</a><a href="https://daylicalendar.co.uk/support.html">Support</a></footer>
+</div>
+</body>
+</html>
