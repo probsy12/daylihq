@@ -3,6 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // Signed in already (HQ at /app/ keeps its session here, on the same
+      // domain): straight to the dashboard. ?home shows this page anyway.
+      (function () {
+        try {
+          if (/[?&]home\b/.test(location.search)) return;
+          for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            if (!/^sb-.+-auth-token$/.test(k)) continue;
+            var s = JSON.parse(localStorage.getItem(k) || 'null');
+            s = s && (s.currentSession || s);
+            if (s && s.refresh_token) return location.replace('/app/' + location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <title>Dayli HQ: run your team, games and events</title>
     <meta
       name="description"
