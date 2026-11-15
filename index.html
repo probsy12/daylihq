@@ -522,6 +522,30 @@
         width: 100%;
         height: auto;
       }
+      .show.show-ev {
+        grid-template-columns: 1.3fr 1fr;
+      }
+      .ev-phone {
+        max-width: 300px;
+        margin: 0 auto;
+        border-radius: 34px;
+        overflow: hidden;
+        border: 8px solid #1c1a17;
+        box-shadow: 0 24px 50px rgba(28, 26, 23, 0.18);
+      }
+      .ev-phone img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      @media (max-width: 900px) {
+        .show.show-ev {
+          grid-template-columns: 1fr;
+        }
+        .ev-phone {
+          max-width: 250px;
+        }
+      }
       .ticks {
         list-style: none;
         padding: 0;
@@ -771,8 +795,9 @@
           <h1>Run your team, games and events. <em>Everyone’s calendar keeps up.</em></h1>
           <p class="lead">
             Dayli HQ is where you organise. Set up a fixture, a Thursday five-a-side or a quiz night
-            once, and it lands in every player’s Dayli calendar, with who’s in, the team sheet and
-            who’s paid all in one place.
+            once, and it lands in people’s Dayli calendars. Your team and your games get who’s in,
+            the team sheet and who’s paid in one place. Your events get found by people nearby, with
+            tickets, check-in at the door and reminders that go out for you.
           </p>
           <div class="cta">
             <a class="btn p big" href="/app/">Get started free</a>
@@ -815,7 +840,8 @@
       <div class="for">
         <b>MADE FOR</b><span>Sunday league sides</span><span>Netball teams</span
         ><span>Five-a-side groups</span><span>Padel doubles</span><span>Kids’ clubs</span
-        ><span>Quiz nights</span><span>Tournaments</span>
+        ><span>Quiz nights</span><span>Comedy nights</span><span>Classes</span><span>Markets</span
+        ><span>Tournaments</span>
       </div>
 
       <section class="center" id="what">
@@ -894,11 +920,12 @@
               </svg>
             </div>
             <h3>Events</h3>
-            <p>Things the public can find and go to.</p>
+            <p>Things the public can find, book and go to.</p>
             <ul>
               <li>Listed for people nearby in the Dayli app</li>
-              <li>Tickets, check-in at the door</li>
-              <li>See who’s coming and from where</li>
+              <li>Free, paid or pay-what-you-like tickets</li>
+              <li>Check people in at the door from your phone</li>
+              <li>See who’s coming, from where, and how they found you</li>
               <li>Reminders go out for you</li>
             </ul>
             <div class="like">Like: quiz night, yoga class, tournament, market</div>
@@ -1100,6 +1127,104 @@
                 >See who’s paid, and what each person owes over the season
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="show show-ev">
+          <div>
+            <div class="kick" style="color: #d9741c">EVENTS</div>
+            <h2>Put it on. People nearby find it.</h2>
+            <p class="sub">
+              Publish a quiz night, a comedy night, a class or a tournament and it’s listed in the
+              Dayli app for people near you, by day and by what they’re into. They tap Going or buy
+              a ticket, and it’s in their calendar with a reminder before it starts.
+            </p>
+            <ul class="ticks">
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#d9741c"
+                  stroke-width="2.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.5l4.5 4.5L19 7.5" /></svg
+                >Free, paid or pay what you like, with early bird prices, codes and a limit
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#d9741c"
+                  stroke-width="2.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.5l4.5 4.5L19 7.5" /></svg
+                >Ticket money goes straight to your bank through Stripe. One set-up covers your
+                teams and games too
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#d9741c"
+                  stroke-width="2.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.5l4.5 4.5L19 7.5" /></svg
+                >Check people in at the door from your phone
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#d9741c"
+                  stroke-width="2.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.5l4.5 4.5L19 7.5" /></svg
+                >Your own event page to share anywhere, even with people not on Dayli
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#d9741c"
+                  stroke-width="2.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.5l4.5 4.5L19 7.5" /></svg
+                >See views, who’s going and where they found you
+              </li>
+            </ul>
+            <div class="cta" style="margin-top: 22px">
+              <a class="btn p big" href="/app/">List your first event</a>
+            </div>
+          </div>
+          <div class="ev-phone">
+            <img
+              src="/img/events.webp"
+              width="780"
+              height="1688"
+              alt="Events near you in the Dayli app"
+            />
           </div>
         </div>
       </section>
