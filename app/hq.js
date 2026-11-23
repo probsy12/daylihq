@@ -2187,7 +2187,9 @@
               if (info.notTeam) return drawJoined(info);
               if (info.role === 'manager') return go('#/teams/' + info.calendar_id);
               if ((info.unclaimed || []).length) return drawClaim(info);
-              drawJoined(info);
+              // In the squad (just now or already): straight to their team
+              // page, where they say if they can play.
+              openTeamPage(info);
             });
           },
           function (err) {
@@ -2235,15 +2237,19 @@
             .then(function () {
               return rpc('team_join_info', { p_calendar: info.calendar_id });
             })
-            .then(drawJoined, function (err) {
+            .then(openTeamPage, function (err) {
               setBusy(b, false);
               toast(friendly(err));
             });
         };
       });
       $('#hj-none').onclick = function () {
-        drawJoined(info);
+        openTeamPage(info);
       };
+    }
+    function openTeamPage(info) {
+      if (!info || !info.token) return drawJoined(info || {});
+      location.href = playerPage(info.token);
     }
     function drawJoined(info) {
       render(

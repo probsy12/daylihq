@@ -29,6 +29,13 @@
     // Players join and answer on Dayli HQ: a Dayli account, no calendar app needed.
     var JOIN = 'https://daylihq.co.uk/join/?code=';
     var HQ_APP = 'https://daylihq.co.uk/app/';
+    // Each team's join code, once seen: the link in messages to the squad. It
+    // works for everyone: someone new joins (and taps their name if they were
+    // added by name), someone already in goes straight to their team page.
+    var CODES = {};
+    function squadLink(cal) {
+      return CODES[cal] ? JOIN + CODES[cal] : HQ_APP;
+    }
     var cfg = window.DAYLI_CONFIG || {};
 
     var KIND = { match: 'Match', training: 'Training', social: 'Social' };
@@ -235,6 +242,7 @@
           return [];
         }),
       ]).then(function (r) {
+        if (r[3]) CODES[cal] = r[3];
         return { team: r[0], results: r[1] || [], pay: r[2], code: r[3], waiting: r[4] || [] };
       });
     }
@@ -922,8 +930,8 @@
             ' at ' +
             time(f.starts_at, f.timezone) +
             (f.location ? ' (' + f.location + ')' : '') +
-            '? Say yes, maybe or no on Dayli: ' + HQ_APP +
-            (d.code ? ' Not on Dayli yet? Join the team: ' + JOIN + d.code : '');
+            '? Say yes, maybe or no on Dayli: ' +
+            (d.code ? JOIN + d.code : HQ_APP);
           window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
         };
       if ($('#th-remind'))
@@ -1379,6 +1387,15 @@
 
     function screenFixture(cal, eventId) {
       loading();
+      // The team's join code too, for the squad message (see squadLink).
+      if (!CODES[cal])
+        sb.from('calendars')
+          .select('join_code')
+          .eq('id', cal)
+          .maybeSingle()
+          .then(function (r) {
+            if (r.data && r.data.join_code) CODES[cal] = r.data.join_code;
+          });
       rpc('team_fixture', { p_event: eventId }).then(
         function (f) {
           if (!f) return go(teamUrl(cal));
@@ -1941,8 +1958,8 @@
           (f.meet_at ? ' (meet ' + time(f.meet_at, f.timezone) + ')' : '') +
           (f.location ? ', ' + f.location : '');
         var text = starters.length
-          ? 'Team for ' + line + '\n\n' + starters.map(first).join(', ') + (subs.length ? '\nSubs: ' + subs.map(first).join(', ') : '') + '\n\nCan’t make it any more? Tell me in Dayli.'
-          : 'Can you make ' + line + '? Say yes, maybe or no on Dayli: ' + HQ_APP;
+          ? 'Team for ' + line + '\n\n' + starters.map(first).join(', ') + (subs.length ? '\nSubs: ' + subs.map(first).join(', ') : '') + '\n\nCan’t make it any more? Tell me in Dayli: ' + squadLink(cal)
+          : 'Can you make ' + line + '? Say yes, maybe or no on Dayli: ' + squadLink(cal);
         window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
       }
       function saveScore() {
